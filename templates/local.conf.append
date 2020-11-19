@@ -1,5 +1,5 @@
 
-# Appended fragment from meta-mender-community/templates
+# Appended fragment from raspberry-pi-ota-yocto/templates
 
 # This really saves a lot of disk space!
 INHERIT += "rm_work"

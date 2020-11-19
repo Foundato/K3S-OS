@@ -11,8 +11,6 @@ fi
 
 script_dir=$(dirname "$this_script")
 script_dir=$(readlink -f "$script_dir")
-
-mender_community_dir=${script_dir}/sources/meta-mender-community
 build_dir=${script_dir}/build
 
 target=""
@@ -39,7 +37,8 @@ if [ -z "${target}" ]; then
     return 1
 fi
 
-target_templates=${mender_community_dir}/${target}/templates
+# Copy mender configs
+mender_community_dir=${script_dir}/sources/meta-mender-community
 
 . ${script_dir}/sources/poky/oe-init-build-env ${build_dir}
 
@@ -47,11 +46,12 @@ if [ -f ${build_dir}/conf/mender_append_complete ]; then
     return 1
 fi
 
-# Common entries for Mender
-cat ${mender_community_dir}/templates/local.conf.append >> ${build_dir}/conf/local.conf
+# Common entries Project
+cat ${script_dir}/templates/local.conf.append >> ${build_dir}/conf/local.conf
 
 # Board specific entries
+target_templates=${script_dir}/${target}/templates
 cp ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
 cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
 
-touch ${build_dir}/conf/mender_append_complete
+touch ${build_dir}/conf/foundato_append_complete

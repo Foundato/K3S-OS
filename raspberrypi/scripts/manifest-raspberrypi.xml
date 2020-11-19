@@ -9,6 +9,7 @@
   <project name="meta-openembedded" remote="oe" revision="zeus" path="sources/meta-openembedded"/>
   <project name="meta-raspberrypi" remote="rpi" revision="zeus" path="sources/meta-raspberrypi"/>
 
+  <include name="scripts/foundato.xml"/>
   <include name="scripts/mender.xml"/>
 
 </manifest>

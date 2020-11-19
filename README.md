@@ -5,11 +5,11 @@
 ```bash
 # Use latest supported Yocto-Branch
 export BRANCH="zeus" && \
-     sudo mkdir mender-raspberrypi && \
-     cd ${HOME}/playground/mender-raspberrypi
+     mkdir raspberrypi && \
+     cd ${HOME}/playground/raspberrypi
 
 # Initialize repository
-repo init -u git@github.com:Foundato/raspberry-pi-ota-yocto.git \
+repo init -u https://github.com/Foundato/raspberry-pi-ota-yocto.git \
      -m raspberrypi/scripts/manifest-raspberrypi.xml \
      -b ${BRANCH} && \
      repo sync
@@ -20,7 +20,7 @@ repo init -u git@github.com:Foundato/raspberry-pi-ota-yocto.git \
 ```bash
 # Setup build environment
 export BRANCH="zeus" && \
-     cd ${HOME}/playground/mender-raspberrypi && \
+     cd ${HOME}/playground/raspberrypi && \
      source setup-environment raspberrypi
 
 # Build
@@ -29,15 +29,15 @@ MACHINE=raspberrypi4 bitbake core-image-base
 
 The build artifacts are now the following two files:
 
-- SD-Card image: `${HOME}/playground/mender-raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.sdimg`
-- Mender Artifact: `${HOME}/playground/mender-raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.mender`
+- SD-Card image: `${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.sdimg`
+- Mender Artifact: `${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.mender`
 
 ### Copy build artifacts to host (execute from your host)
 
 ```bash
 export VM_IP=168.119.52.88 && \
      mkdir ${HOME}/yocto && \
-     scp yocto@${VM_IP}:/home/yocto/playground/mender-raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
+     scp yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
 ```
 
 ### Flash SD-Card (Mac-OS)
