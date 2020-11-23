@@ -4,8 +4,8 @@
 
 ```bash
 # Use latest supported Yocto-Branch
-export BRANCH="zeus" && \
-     mkdir raspberrypi && \
+export BRANCH="dunfell" && \
+     mkdir ${HOME}/playground/raspberrypi && \
      cd ${HOME}/playground/raspberrypi
 
 # Initialize repository
