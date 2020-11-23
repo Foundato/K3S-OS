@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Sync repository if not already done
+cd ${HOME}/playground/raspberrypi && \
+     repo sync
+
+# Setup build environment
+export BRANCH="zeus" && \
+     cd ${HOME}/playground/raspberrypi && \
+     source setup-environment raspberrypi
+
+# Build
+MACHINE=raspberrypi4 bitbake core-image-base

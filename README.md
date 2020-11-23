@@ -18,6 +18,10 @@ repo init -u https://github.com/Foundato/raspberry-pi-ota-yocto.git \
 ### Build yocto
 
 ```bash
+# Sync repository if not already done
+cd ${HOME}/playground/raspberrypi && \
+     repo sync
+
 # Setup build environment
 export BRANCH="zeus" && \
      cd ${HOME}/playground/raspberrypi && \
@@ -36,7 +40,7 @@ The build artifacts are now the following two files:
 
 ```bash
 export VM_IP=168.119.52.88 && \
-     mkdir ${HOME}/yocto && \
+     mkdir -p ${HOME}/yocto && \
      scp yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
 ```
 

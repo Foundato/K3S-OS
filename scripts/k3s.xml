@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <default sync-j="4" revision="zeus"/>
+
+  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+
+  <project name="meta-virtualization" remote="yocto" revision="zeus" path="sources/meta-virtualization"/>
+
+</manifest>

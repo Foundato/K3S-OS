@@ -37,21 +37,16 @@ if [ -z "${target}" ]; then
     return 1
 fi
 
-# Copy mender configs
-mender_community_dir=${script_dir}/sources/meta-mender-community
+# Remove existing config (Needed for incremental sync and build)
+rm -f ${build_dir}/conf/local.conf
 
+# Init poky build
 . ${script_dir}/sources/poky/oe-init-build-env ${build_dir}
 
-if [ -f ${build_dir}/conf/mender_append_complete ]; then
-    return 1
-fi
-
 # Common entries Project
-cat ${script_dir}/templates/local.conf.append >> ${build_dir}/conf/local.conf
+cat ${script_dir}/templates/*.local.conf.append >> ${build_dir}/conf/local.conf
 
 # Board specific entries
 target_templates=${script_dir}/${target}/templates
 cp ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
 cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
-
-touch ${build_dir}/conf/foundato_append_complete

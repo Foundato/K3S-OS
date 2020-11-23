@@ -11,5 +11,6 @@
 
   <include name="scripts/foundato.xml"/>
   <include name="scripts/mender.xml"/>
+  <include name="scripts/k3s.xml"/>
 
 </manifest>

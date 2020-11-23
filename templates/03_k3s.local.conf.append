@@ -1,0 +1,11 @@
+
+# Appended fragment from raspberry-pi-ota-yocto/templates/03_k3s.local.conf.append
+
+# We now need to add virtualization features to our distro
+#  Not sure if this is needed at the moment, but the meta-virtualization
+#  layer recommends it.  It probably adds KVM stuff to the kernel which we
+#  don't need, I'll investigate later.
+DISTRO_FEATURES += "virtualization"
+
+
+#IMAGE_INSTALL += "docker"
