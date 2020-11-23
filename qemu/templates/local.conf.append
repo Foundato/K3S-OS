@@ -1,0 +1,3 @@
+# Appended fragment from meta-mender-community/meta-mender-raspberrypi/templates
+
+MACHINE ?= "qemux86-64"
