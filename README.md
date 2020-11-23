@@ -2,6 +2,11 @@
 
 Current version using the Yocto-[Zeus](https://github.com/Foundato/raspberry-pi-ota-yocto/tree/zeus) release can be found under the 'zeus' branch.
 
+## Must reads
+
+- [Developing images basics](docs/Yocto-Dev.md)
+- [Developing on remote servers (Cheatsheet)](docs/Remote-dev-cheatsheet.md)
+
 ## Setup (Ubuntu 18.04)
 
 ### Initialize machine
@@ -38,8 +43,11 @@ sudo apt-get install -y python && \
 
 ```bash
 # Link and move to persisten volume if working in virtual machine
-export EXT_VOLUME=HC_Volume_8028620 && \
-     sudo ln -sf /mnt/${EXT_VOLUME}/ ${HOME}/playground && \
-     cd ${HOME}/playground && \
-     sudo chown -R yocto /mnt/${EXT_VOLUME}
+export EXT_VOLUME=HC_Volume_8028620
+
+sudo ln -sf /mnt/${EXT_VOLUME}/ ${HOME}/playground && \
+     cd ${HOME}/playground
+     
+# Only if the directory does not already belong to yocto user     
+sudo chown -R yocto /mnt/${EXT_VOLUME}
 ```
