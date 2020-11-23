@@ -24,9 +24,15 @@ The build artifacts are now the following two files:
 ### Copy build artifacts to host (execute from your host)
 
 ```bash
+# Via scp (slow)
 export VM_IP=168.119.52.88 && \
      mkdir -p ${HOME}/yocto && \
      scp yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
+
+# Via rsync through ssh (fast)
+export VM_IP=168.119.52.88 && \
+     mkdir -p ${HOME}/yocto && \
+     rsync --compress --copy-links -Pe ssh yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
 ```
 
 ### Flash SD-Card (Mac-OS)

@@ -16,4 +16,6 @@ export BRANCH="zeus" && \
 MACHINE=qemux86-64 bitbake core-image-base
 ```
 
-## [Further instructions](https://hub.mender.io/t/qemu-the-fast-processor-emulator/420)
+## [Original tutorial](https://hub.mender.io/t/qemu-the-fast-processor-emulator/420)
+
+## [Yocto guide](https://wiki.yoctoproject.org/wiki/Steps_for_Automated_Testing_on_QEMU)
