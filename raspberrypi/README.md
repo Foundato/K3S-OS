@@ -8,7 +8,7 @@ cd ${HOME}/playground/raspberrypi && \
      repo sync
 
 # Setup build environment
-export BRANCH="zeus" && \
+export BRANCH="dunfell" && \
      cd ${HOME}/playground/raspberrypi && \
      source setup-environment raspberrypi
 

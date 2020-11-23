@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
   <manifest>
-  <default sync-j="4" revision="zeus"/>
+  <default sync-j="4" revision="dunfell"/>
 
   <remote fetch="https://github.com/Foundato" name="foundato"/>
 
-  <project name="raspberry-pi-ota-yocto" remote="foundato" revision="zeus" path=".">
+  <project name="raspberry-pi-ota-yocto" remote="foundato" revision="dunfell" path=".">
     <copyfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 
