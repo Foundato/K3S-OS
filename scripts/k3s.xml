@@ -3,7 +3,9 @@
   <default sync-j="4" revision="zeus"/>
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="https://github.com/ericvh" name="k3s"/>
 
   <project name="meta-virtualization" remote="yocto" revision="zeus" path="sources/meta-virtualization"/>
+  <project name="meta-k3s" remote="k3s" revision="zeus" path="sources/meta-k3s"/>
 
 </manifest>
