@@ -60,7 +60,7 @@ Due to the fact that yocto needs quite a long time to build (even on a 16-core V
 # 1. Install screen
 sudo apt-get install screen
 
-# 2. Start screen session (You might be promptet with some license information... just press space to continue)
+# 2. Start screen session (You might be promptet with some license information... just press return to continue)
 screen
 
 # 2.1 Start your yocto build
