@@ -47,7 +47,29 @@ export EXT_VOLUME=HC_Volume_8028620
 
 sudo ln -sf /mnt/${EXT_VOLUME}/ ${HOME}/playground && \
      cd ${HOME}/playground
-     
-# Only if the directory does not already belong to yocto user     
+
+# Only if the directory does not already belong to yocto user
 sudo chown -R yocto /mnt/${EXT_VOLUME}
+```
+
+### Setup screen for detached shell session
+
+Due to the fact that yocto needs quite a long time to build (even on a 16-core VM [~ 1h]) it is recommended to use tools like screen to detatch the shell session from the ssh connection. Therefore it is possible to detach and reatach the shell session running the yocto build. To do this you have to follow this 4 simple steps:
+
+```bash
+# 1. Install screen
+sudo apt-get install screen
+
+# 2. Start screen session (You might be promptet with some license information... just press space to continue)
+screen
+
+# 2.1 Start your yocto build
+
+# 3. Detach shell session with running yocto build
+Press keys: CTRL+A CTRL+D
+
+# 3.1 Close ssh session
+
+# 4. Login ssh session and type:
+screen -r
 ```
