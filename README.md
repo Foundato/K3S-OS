@@ -43,6 +43,7 @@ sudo apt-get install -y python && \
 
 ```bash
 # Link and move to persisten volume if working in virtual machine
+ls /mnt
 export EXT_VOLUME=HC_Volume_8028620
 
 sudo ln -sf /mnt/${EXT_VOLUME}/ ${HOME}/playground && \
