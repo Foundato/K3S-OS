@@ -12,6 +12,9 @@ export BRANCH="zeus" && \
      cd ${HOME}/playground/raspberrypi && \
      source setup-environment raspberrypi
 
+# Edit ./conf/local.conf
+nano ./conf/local.conf
+
 # Build
 MACHINE=raspberrypi4 bitbake core-image-base
 ```
