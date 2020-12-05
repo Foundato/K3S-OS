@@ -1,9 +1,14 @@
 # Building Chromium Courgette (Binary diff tool) on Ubuntu 16.04
+# Building Chromium Courgette (Binary diff tool) on Ubuntu 16.04
 
 The following guide is derived from [this](https://chromium.googlesource.com/chromium/src/+/master/docs/linux/build_instructions.md) original guide from google.
 
 ### Install depot_tools and fetch chromium sources
 ```bash
+adduser chromium && \
+     usermod -aG sudo chromium && \
+     su - chromium
+
 # Install packages
 sudo apt-get update && \
      sudo apt-get install -y git python
@@ -12,34 +17,11 @@ sudo apt-get update && \
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git ${HOME}/bin/depot_tools  && \
      export PATH=${HOME}/bin/depot_tools:$PATH
 
-
-
-# Install build dependencies and run hooks
-cd ${HOME}/chromium/src && \
-     ./build/install-build-deps.sh && \
-     gclient runhooks
-
-# Setup build environment and build Courgette
-cd ${HOME}/chromium/src && \
-     gn gen out/Default && \
-     autoninja -C out/Default courgette
-
-GYP_CROSSCOMPILE=1 GYP_DEFINES="target_arch=arm arm_float_abi=hard component=shared_library linux_use_gold_flags=1" gclient runhooks && \
-     ninja -C out/Default courgette
-
-     GYP_CROSSCOMPILE=1 GYP_DEFINES="target_arch=arm arm_float_abi=hard component=shared_library linux_use_gold_flags=1" autoninja -C out/Default courgette
-```
-
-### Clone chromium repo (This takes veeeery long!)
-
-```bash
-# Clone chromium repo (grab a cup of coffee!)
-mkdir ${HOME}/chromium && cd ${HOME}/chromium && \
+# Download chromium sources (this takes veeery long!)
+mkdir ${HOME}/chromium && \
+     cd ${HOME}/chromium && \
      fetch --nohooks chromium
-```
 
-### Build for (x86)
-```bash
 # Install build dependencies and run hooks
 cd ${HOME}/chromium/src && \
      ./build/install-build-deps.sh && \
@@ -51,7 +33,7 @@ cd ${HOME}/chromium/src && \
      autoninja -C out/Default courgette
 ```
 
-### Build for (arm)
+### Build for ARM (not completely verified yet)
 ```bash
 
 # Install build dependencies and run hooks
