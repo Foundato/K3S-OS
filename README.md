@@ -5,12 +5,12 @@
 ```bash
 # Use latest supported Yocto-Branch
 export BRANCH="zeus" && \
-     mkdir raspberrypi && \
-     cd ${HOME}/playground/raspberrypi
+     mkdir intel && \
+     cd ${HOME}/playground/intel
 
 # Initialize repository
 repo init -u https://github.com/Foundato/raspberry-pi-ota-yocto.git \
-     -m raspberrypi/scripts/manifest-raspberrypi.xml \
+     -m raspberrypi/scripts/manifest-intel.xml \
      -b ${BRANCH} && \
      repo sync
 ```

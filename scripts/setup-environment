@@ -18,6 +18,7 @@ target=""
 targets=(
     "raspberrypi"
     "qemu"
+    "intel"
 )
 
 for i in ${targets[@]}
