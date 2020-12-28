@@ -16,13 +16,13 @@ export BRANCH="zeus" && \
 nano ./conf/local.conf
 
 # Build
-MACHINE=intel-corei7-64 bitbake core-image-base
+MACHINE=intel-corei7-64 bitbake core-image-full-cmdline
 ```
 
 The build artifacts are now the following two files:
 
-- SD-Card image: `${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.sdimg`
-- Mender Artifact: `${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.mender`
+- UEFI image (Used to boot from [USB-Stick]()): `${HOME}/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64.uefiimg`
+- Mender Artifact: `${HOME}/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-base-intel-corei7-64.mender`
 
 ### Copy build artifacts to host (execute from your host)
 
@@ -30,12 +30,12 @@ The build artifacts are now the following two files:
 # Via scp (slow)
 export VM_IP=168.119.52.88 && \
      mkdir -p ${HOME}/yocto && \
-     scp yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
+     scp yocto@${VM_IP}:/home/yocto/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64\{.uefiimg,.mender\} ${HOME}/yocto
 
 # Via rsync through ssh (fast)
 export VM_IP=168.119.52.88 && \
      mkdir -p ${HOME}/yocto && \
-     rsync --compress --copy-links -Pe ssh yocto@${VM_IP}:/home/yocto/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4\{.sdimg,.mender\} ${HOME}/yocto
+     rsync --compress --copy-links -Pe ssh yocto@${VM_IP}:/home/yocto/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64\{.uefiimg,.mender\} ${HOME}/yocto
 ```
 
 ### Flash SD-Card (Mac-OS)
@@ -51,5 +51,5 @@ diskutil unmount ${FLASH_DEV}
 diskutil unmountDisk ${FLASH_DEV}
 
 # Flash image to SD-Card
-sudo dd if=${HOME}/yocto/core-image-base-raspberrypi4.sdimg of=${FLASH_DEV} bs=1048576
+sudo dd if=${HOME}/yocto/core-image-full-cmdline-intel-corei7-64.uefiimg of=${FLASH_DEV} bs=4096
 ```

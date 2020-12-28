@@ -1,16 +1,17 @@
-# QEMU OTA
+# OTA
 
 ### Setup yocto environment (only if mount volume is empty!!!) ([Raspberry PI Model 4 B](https://hub.mender.io/t/raspberry-pi-4-model-b/889))
 
 ```bash
 # Use latest supported Yocto-Branch
 export BRANCH="zeus" && \
-     mkdir intel && \
-     cd ${HOME}/playground/intel
+     export BUILD_PLATFORM="intel"
+     mkdir ${BUILD_PLATFORM} && \
+     cd ${HOME}/playground/${BUILD_PLATFORM}
 
 # Initialize repository
 repo init -u https://github.com/Foundato/raspberry-pi-ota-yocto.git \
-     -m raspberrypi/scripts/manifest-intel.xml \
+     -m ${BUILD_PLATFORM}/scripts/manifest-${BUILD_PLATFORM}.xml \
      -b ${BRANCH} && \
      repo sync
 ```
