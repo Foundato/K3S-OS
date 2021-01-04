@@ -4,6 +4,6 @@
 
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
 
-  <project name="meta-virtualization" remote="yocto" revision="dunfell" path="sources/meta-virtualization"/>
+  <project name="meta-virtualization" remote="yocto" revision="master-next" path="sources/meta-virtualization"/>
 
 </manifest>
