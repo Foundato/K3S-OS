@@ -2,8 +2,8 @@
 <manifest>
   <default sync-j="4" revision="dunfell"/>
 
-  <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
+  <remote fetch="https://github.com/Foundato" name="foundato"/>
 
-  <project name="meta-virtualization" remote="yocto" revision="master-next" path="sources/meta-virtualization"/>
+  <project name="meta-virtualization" remote="foundato" revision="dunfell" path="sources/meta-virtualization"/>
 
 </manifest>
