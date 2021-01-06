@@ -8,6 +8,9 @@
 DISTRO_FEATURES += "virtualization"
 
 
+# Enable cgroups for k3s
+KERNEL_ENABLE_CGROUPS = "1"
+
 CORE_IMAGE_EXTRA_INSTALL += "docker-ce"
 IMAGE_INSTALL_append = " k3s"
 
