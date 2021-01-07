@@ -7,9 +7,7 @@
 
   <project name="poky" remote="yocto" revision="dunfell" path="sources/poky"/>
   <project name="meta-openembedded" remote="oe" revision="dunfell" path="sources/meta-openembedded"/>
-  <project name="openembedded-core" remote="oe" revision="dunfell" path="sources/openembedded-core"/>
   <project name="meta-intel" remote="yocto" revision="dunfell" path="sources/meta-intel"/>
-  <project name="meta-ublox" remote="ublox" revision="fido" path="sources/meta-ublox"/>
 
   <include name="scripts/foundato.xml"/>
   <include name="scripts/mender.xml"/>
