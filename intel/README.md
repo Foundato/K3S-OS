@@ -8,7 +8,7 @@ cd ${HOME}/playground/intel && \
      repo sync
 
 # Setup build environment
-export BRANCH="zeus" && \
+export BRANCH="dunfell" && \
      cd ${HOME}/playground/intel && \
      source setup-environment intel
 
