@@ -1,4 +1,4 @@
-# Raspberry-PI OTA
+# Intel-PI OTA
 
 ### Build yocto
 
@@ -51,5 +51,5 @@ diskutil unmount ${FLASH_DEV}
 diskutil unmountDisk ${FLASH_DEV}
 
 # Flash image to SD-Card
-sudo dd if=${HOME}/yocto/core-image-full-cmdline-intel-corei7-64.uefiimg of=${FLASH_DEV} bs=4096
+sudo dd if=${HOME}/yocto/core-image-full-cmdline-intel-corei7-64.uefiimg of=${FLASH_DEV} bs=1048576
 ```
