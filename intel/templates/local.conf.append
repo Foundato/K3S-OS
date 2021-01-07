@@ -29,5 +29,4 @@ IMAGE_INSTALL_append += " networkmanager"
 IMAGE_INSTALL_append += " linux-firmware"
 
 # Include connman and linux 
-IMAGE_INSTALL_append += " connman connman-client iptables"
 IMAGE_INSTALL_append += " linux-firmware-rtl8192cu"
