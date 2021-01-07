@@ -4,9 +4,9 @@
   <remote fetch="https://git.yoctoproject.org/git" name="yocto"/>
   <remote fetch="https://github.com/openembedded"  name="oe"/>
 
-  <project name="poky" remote="yocto" revision="zeus" path="sources/poky"/>
-  <project name="meta-openembedded" remote="oe" revision="zeus" path="sources/meta-openembedded"/>
-  <project name="meta-intel" remote="yocto" revision="zeus" path="sources/meta-intel"/>
+  <project name="poky" remote="yocto" revision="dunfell" path="sources/poky"/>
+  <project name="meta-openembedded" remote="oe" revision="dunfell" path="sources/meta-openembedded"/>
+  <project name="meta-intel" remote="yocto" revision="dunfell" path="sources/meta-intel"/>
 
   <include name="scripts/foundato.xml"/>
   <include name="scripts/mender.xml"/>
