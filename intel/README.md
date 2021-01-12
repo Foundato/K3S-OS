@@ -24,6 +24,13 @@ The build artifacts are now the following two files:
 - UEFI image (Used to boot from [USB-Stick]()): `${HOME}/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64.uefiimg`
 - Mender Artifact: `${HOME}/playground/intel/build/tmp/deploy/images/intel-corei7-64/core-image-base-intel-corei7-64.mender`
 
+### Inspect image root fs
+
+In order to check if all files got copied into the right directories you can inspect the .wic artifact:
+```bash
+wic ls ./tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64.wic:2/etc
+```
+
 ### Copy build artifacts to host (execute from your host)
 
 ```bash
