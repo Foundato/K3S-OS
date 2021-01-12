@@ -9,13 +9,13 @@ BBLAYERS ?= " \
   ${TOPDIR}/../sources/poky/meta \
   ${TOPDIR}/../sources/poky/meta-poky \
   ${TOPDIR}/../sources/poky/meta-yocto-bsp \
-  ${TOPDIR}/../sources/poky/meta-freescale \
   ${TOPDIR}/../sources/meta-openembedded/meta-oe \
   ${TOPDIR}/../sources/meta-openembedded/meta-python \
   ${TOPDIR}/../sources/meta-openembedded/meta-networking \
   ${TOPDIR}/../sources/meta-openembedded/meta-filesystems \
   ${TOPDIR}/../sources/meta-openembedded/meta-multimedia \
   ${TOPDIR}/../sources/meta-intel \
+  ${TOPDIR}/../sources/meta-freescale \
   ${TOPDIR}/../sources/meta-virtualization \
   ${TOPDIR}/../sources/meta-k3s \
   ${TOPDIR}/../sources/meta-mender/meta-mender-core \
