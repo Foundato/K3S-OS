@@ -9,5 +9,4 @@ DISTRO_FEATURES += "virtualization"
 
 
 CORE_IMAGE_EXTRA_INSTALL += "docker-ce"
-IMAGE_INSTALL_append = " k3s"
-
+IMAGE_INSTALL_append = " k3s k3s-init"

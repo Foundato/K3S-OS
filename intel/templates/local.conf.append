@@ -27,3 +27,6 @@ IMAGE_INSTALL_append = " kernel-modules"
 IMAGE_INSTALL_append += " iproute2"
 IMAGE_INSTALL_append += " networkmanager"
 IMAGE_INSTALL_append += " linux-firmware"
+
+# Include connman and linux 
+IMAGE_INSTALL_append += " linux-firmware-rtl8192cu"
