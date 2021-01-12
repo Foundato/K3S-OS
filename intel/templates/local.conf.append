@@ -27,7 +27,7 @@ IMAGE_INSTALL_append = " kernel-modules"
 IMAGE_INSTALL_append += " iproute2"
 IMAGE_INSTALL_append += " networkmanager"
 IMAGE_INSTALL_append += " linux-firmware"
-IMAGE_INSTALL_append += " usbutils pciutils ppp"
+IMAGE_INSTALL_append += " usbutils pciutils udev"
 
 CORE_IMAGE_EXTRA_INSTALL_append = " ethtool"
 
