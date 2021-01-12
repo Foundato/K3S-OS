@@ -30,5 +30,3 @@ IMAGE_INSTALL_append += " linux-firmware"
 
 # Include connman and linux 
 IMAGE_INSTALL_append += " linux-firmware-rtl8192cu"
-IMAGE_INSTALL_append += " usbutils pciutils"
-
