@@ -19,6 +19,19 @@ nano ./conf/local.conf
 MACHINE=raspberrypi4 bitbake core-image-base
 ```
 
+### Inspect files of the previously built image
+```bash
+# Detatch old device if already mounted
+sudo umount /mnt/rpi-rootfs /mnt/rpi-boot && \
+     sudo losetup -d /dev/loop0
+
+# Attach new device
+sudo losetup -P /dev/loop0 ${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.sdimg && \
+    sudo mkdir -p /mnt/rpi-rootfs /mnt/rpi-boot && \
+    sudo mount /dev/loop0p2 /mnt/rpi-rootfs && \
+    sudo mount /dev/loop0p1 /mnt/rpi-boot
+```
+
 The build artifacts are now the following two files:
 
 - SD-Card image: `${HOME}/playground/raspberrypi/build/tmp/deploy/images/raspberrypi4/core-image-base-raspberrypi4.sdimg`
