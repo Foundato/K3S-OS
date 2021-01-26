@@ -4,7 +4,7 @@
 
   <remote fetch="https://github.com/Foundato" name="foundato"/>
 
-  <project name="raspberry-pi-ota-yocto" remote="foundato" revision="zeus" path=".">
+  <project name="K3S-OS" remote="foundato" revision="zeus" path=".">
     <copyfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
 
