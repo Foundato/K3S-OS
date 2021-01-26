@@ -16,7 +16,8 @@ Specify the build platform as well as the target release (branch) you want to bu
 This is an example setup for a zeus release for the intel platform. 
 ```bash
 export BRANCH="zeus" && \
-     export BUILD_PLATFORM="intel"
+     export BUILD_PLATFORM="intel" && \
+     export STAGE="prod"
 ```
 
 ## 2. Clone repositories
@@ -33,5 +34,5 @@ cd ${HOME}/${BUILD_DIR} && \
 
 ```bash
 cd ${HOME}/${BUILD_DIR} && \
-     source setup-environment ${BUILD_PLATFORM}
+     source setup-environment ${BUILD_PLATFORM} ${STAGE}
 ```
