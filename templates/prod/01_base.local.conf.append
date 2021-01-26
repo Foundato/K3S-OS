@@ -1,0 +1,8 @@
+
+# Appended fragment from raspberry-pi-ota-yocto/templates/01_base.local.conf.append
+
+# Enable serial console
+ENABLE_UART = "1"
+
+# Enable ssh deamon
+CORE_IMAGE_EXTRA_INSTALL += "openssh"
