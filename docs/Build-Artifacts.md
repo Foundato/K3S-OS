@@ -53,5 +53,5 @@ The build artifacts are now the following files:
 
 In order to check if all files got copied into the right directories you can inspect the .wic artifact:
 ```bash
-wic ls ./tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64.wic:2/etc
+wic ls ${HOME}/${BUILD_DIR}/build/tmp/deploy/images/intel-corei7-64/core-image-full-cmdline-intel-corei7-64.wic:2/etc
 ```

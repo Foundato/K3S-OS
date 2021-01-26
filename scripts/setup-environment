@@ -61,7 +61,7 @@ for i in ${stages[@]}
 do
     if [[ $i == $2 ]]
     then
-        target=$2
+        stage=$2
         break
     fi
 done
