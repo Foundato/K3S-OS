@@ -23,7 +23,7 @@ export BRANCH="zeus" && \
 
 ```bash
 cd ${HOME}/${BUILD_DIR} && \
-     repo init -u https://github.com/Foundato/raspberry-pi-ota-yocto.git \
+     repo init -u https://github.com/Foundato/K3S-OS.git \
      -m ${BUILD_PLATFORM}/scripts/manifest-${BUILD_PLATFORM}.xml \
      -b ${BRANCH} && \
      repo sync
