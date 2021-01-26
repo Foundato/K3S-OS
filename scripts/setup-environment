@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# ====================================
+# Initialization
+# ====================================
+
 # Inspired by "probe" in oe-init-build-env
 if [ -n "$BASH_SOURCE" ]; then
     this_script=$BASH_SOURCE
@@ -14,6 +18,7 @@ script_dir=$(readlink -f "$script_dir")
 build_dir=${script_dir}/build
 
 target=""
+stage=""
 
 targets=(
     "raspberrypi"
@@ -21,6 +26,14 @@ targets=(
     "intel"
 )
 
+stages=(
+  "prod"
+  "dev"
+)
+
+# ====================================
+# Read target input
+# ====================================
 for i in ${targets[@]}
 do
     if [[ $i == $1 ]]
@@ -33,22 +46,53 @@ done
 if [ -z "${target}" ]; then
     echo "Sorry, it does not seem that *$1* is a valid target"
     echo ""
+    echo "Usage: setup-environment <target> <stage>"
+    echo ""
 
     printf "Supported targets are:\n"
     printf '%s\n' "${targets[@]}"
     return 1
 fi
 
-# Remove existing config (Needed for incremental sync and build)
-rm -f ${build_dir}/conf/local.conf
+# ====================================
+# Read stage input
+# ====================================
+for i in ${stages[@]}
+do
+    if [[ $i == $2 ]]
+    then
+        target=$2
+        break
+    fi
+done
 
+if [ -z "${stage}" ]; then
+    echo "Sorry, it does not seem that *$2* is a valid stage"
+    echo ""
+    echo "Usage: setup-environment <target> <stage>"
+    echo ""
+
+    printf "Supported stages are:\n"
+    printf '%s\n' "${stages[@]}"
+    return 1
+fi
+
+# ====================================
 # Init poky build
+# ====================================
 . ${script_dir}/sources/poky/oe-init-build-env ${build_dir}
 
-# Common entries Project
-cat ${script_dir}/templates/*.local.conf.append >> ${build_dir}/conf/local.conf
+# ====================================
+# Copy target specific configs
+# ====================================
 
-# Board specific entries
-target_templates=${script_dir}/${target}/templates
-cp ${target_templates}/bblayers.conf.sample ${build_dir}/conf/bblayers.conf
-cat ${target_templates}/local.conf.append >> ${build_dir}/conf/local.conf
+# Target configuration
+cat ${script_dir}/${target}/templates/${stage}/local.conf > ${build_dir}/conf/local.conf
+# Layer config
+cp ${script_dir}/${target}/templates/${stage}/bblayers.conf ${build_dir}/conf/bblayers.conf
+
+# ====================================
+# Copy shared configs
+# ====================================
+
+cat ${script_dir}/templates/${stage}/*.local.conf.append >> ${build_dir}/conf/local.conf
