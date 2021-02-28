@@ -6,7 +6,7 @@ These steps are very much based on this [article]((https://hub.mender.io/t/raspb
 Specify the build platform as well as the target release (branch) you want to build. 
 
 #### Build platforms
-* raspberry
+* raspberrypi
 * intel
 
 #### Branches
