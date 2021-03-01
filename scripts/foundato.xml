@@ -7,5 +7,6 @@
   <project name="K3S-OS" remote="foundato" revision="zeus" path=".">
     <copyfile dest="setup-environment" src="scripts/setup-environment"/>
   </project>
+  <project name="meta-container-tools" remote="foundato" revision="zeus" path="sources/meta-container-tools"/>
 
   </manifest>
